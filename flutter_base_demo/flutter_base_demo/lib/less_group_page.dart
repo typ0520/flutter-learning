@@ -52,7 +52,8 @@ class LessGroupPage extends StatelessWidget {
                 margin: EdgeInsets.all(20),
                 child: Container(
                   padding: EdgeInsets.all(10),
-                  child: Text('I am card', style: TextStyle(fontSize: 20, color: Colors.white)),
+                  child: Text('I am card',
+                      style: TextStyle(fontSize: 20, color: Colors.white)),
                 ),
               )
             ],
