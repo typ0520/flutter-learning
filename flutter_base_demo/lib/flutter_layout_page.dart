@@ -156,10 +156,6 @@ class _FlutterLayoutPageState extends State<FlutterLayoutPage> {
                 Text(label.substring(0, 1), style: TextStyle(fontSize: 10))));
   }
 
-  Future<Null> _handleRefresh() async {
-    await Future.delayed(Duration(microseconds: 2000));
-  }
-
   Widget _createItemView(String label) {
     return Container(color: Colors.red, child: Center(child: Text(label)));
   }
