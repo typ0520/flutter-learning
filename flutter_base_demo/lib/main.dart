@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_base_demo/flutter_layout_page.dart';
+import 'package:flutter_base_demo/gesture_group.dart';
 import 'package:flutter_base_demo/less_group_page.dart';
+import 'package:flutter_base_demo/res_page.dart';
 import 'package:flutter_base_demo/stateful_group_page.dart';
 
 void main() => runApp(MyApp());
@@ -27,7 +29,9 @@ class MyApp extends StatelessWidget {
         routes: <String, WidgetBuilder>{
           'less': (BuildContext context) => LessGroupPage(),
           'full': (BuildContext context) => StatefulGroup(),
-          'layout': (BuildContext context) => FlutterLayoutPage()
+          'layout': (BuildContext context) => FlutterLayoutPage(),
+          'gesture': (BuildContext context) => GesturePage(),
+          'res': (BuildContext context) => ResourcePage(),
         });
   }
 }
@@ -84,6 +88,8 @@ class _RouteNavigatorState extends State<RouteNavigator> {
           _item('Stateless与基础控件', 'less'),
           _item('StatefulWidget与基础组件', 'full'),
           _item('Flutter布局', 'layout'),
+          _item('如何检测用户手势以及处理点击事件', 'gesture'),
+          _item('Flutter如何使用资源文件', 'res'),
         ]));
   }
 
