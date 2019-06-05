@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_base_demo/flutter_layout_page.dart';
 import 'package:flutter_base_demo/gesture_group.dart';
 import 'package:flutter_base_demo/less_group_page.dart';
+import 'package:flutter_base_demo/photo_app.dart';
 import 'package:flutter_base_demo/res_page.dart';
 import 'package:flutter_base_demo/stateful_group_page.dart';
 import 'package:flutter_base_demo/launch_page.dart';
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
           'gesture': (BuildContext context) => GesturePage(),
           'res': (BuildContext context) => ResourcePage(),
           'launch': (BuildContext context) => LaunchPage(),
+          'photo': (BuildContext context) => PhotoApp(),
         });
   }
 }
@@ -54,7 +56,7 @@ class _RouteNavigatorState extends State<RouteNavigator> {
     // than having to individually change instances of widgets.
     return Container(
         decoration: BoxDecoration(color: Colors.white),
-        padding: EdgeInsets.only(top: 100),
+        padding: EdgeInsets.only(top: 30),
         child: Column(children: <Widget>[
           FractionallySizedBox(
             widthFactor: 1,
@@ -93,6 +95,7 @@ class _RouteNavigatorState extends State<RouteNavigator> {
           _item('如何检测用户手势以及处理点击事件', 'gesture'),
           _item('Flutter如何使用资源文件', 'res'),
           _item('Flutter如何打开第三方应用', 'launch'),
+          _item('拍照App', 'photo'),
         ]));
   }
 
