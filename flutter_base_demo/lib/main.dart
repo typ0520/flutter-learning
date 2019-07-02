@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_base_demo/anim_hero1.dart';
+import 'package:flutter_base_demo/anim_page.dart';
+import 'package:flutter_base_demo/anim_page2.dart';
+import 'package:flutter_base_demo/anim_page3.dart';
 import 'package:flutter_base_demo/flutter_layout_page.dart';
 import 'package:flutter_base_demo/gesture_group.dart';
+import 'package:flutter_base_demo/image_page.dart';
 import 'package:flutter_base_demo/less_group_page.dart';
 import 'package:flutter_base_demo/photo_app.dart';
 import 'package:flutter_base_demo/res_page.dart';
@@ -36,6 +41,12 @@ class MyApp extends StatelessWidget {
           'res': (BuildContext context) => ResourcePage(),
           'launch': (BuildContext context) => LaunchPage(),
           'photo': (BuildContext context) => PhotoApp(),
+          'image': (BuildContext context) => ImagePage(),
+          'anim': (BuildContext context) => AnimPage(),
+          'anim2': (BuildContext context) => AnimPage2(),
+          'anim3': (BuildContext context) => AnimPage3(),
+          'anim_hero1': (BuildContext context) => AnimHero1Page(),
+          'anim_hero2': (BuildContext context) => AnimPage3(),
         });
   }
 }
@@ -57,46 +68,54 @@ class _RouteNavigatorState extends State<RouteNavigator> {
     return Container(
         decoration: BoxDecoration(color: Colors.white),
         padding: EdgeInsets.only(top: 30),
-        child: Column(children: <Widget>[
-          FractionallySizedBox(
-            widthFactor: 1,
-            child: Container(
-              decoration: BoxDecoration(color: Colors.blue),
-              margin: EdgeInsets.only(top: 50, bottom: 50),
-              alignment: Alignment.center,
-              child: Text(
-                '第一种跳转方式',
-                style: TextStyle(fontSize: 20),
+        child: SingleChildScrollView(
+          child: Column(children: <Widget>[
+            FractionallySizedBox(
+              widthFactor: 1,
+              child: Container(
+                decoration: BoxDecoration(color: Colors.blue),
+                margin: EdgeInsets.only(bottom: 20),
+                alignment: Alignment.center,
+                child: Text(
+                  '第一种跳转方式',
+                  style: TextStyle(fontSize: 20),
+                ),
               ),
             ),
-          ),
-          RaisedButton(
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => LessGroupPage()));
-            },
-            child: Text('不通过路由直接跳转到某个页面'),
-          ),
-          FractionallySizedBox(
-            widthFactor: 1,
-            child: Container(
-              decoration: BoxDecoration(color: Colors.blue),
-              margin: EdgeInsets.only(top: 50, bottom: 50),
-              alignment: Alignment.center,
-              child: Text(
-                '第二种跳转方式',
-                style: TextStyle(fontSize: 20),
+            RaisedButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => LessGroupPage()));
+              },
+              child: Text('不通过路由直接跳转到某个页面'),
+            ),
+            FractionallySizedBox(
+              widthFactor: 1,
+              child: Container(
+                decoration: BoxDecoration(color: Colors.blue),
+                margin: EdgeInsets.only(top: 20, bottom: 20),
+                alignment: Alignment.center,
+                child: Text(
+                  '第二种跳转方式',
+                  style: TextStyle(fontSize: 20),
+                ),
               ),
             ),
-          ),
-          _item('Stateless与基础控件', 'less'),
-          _item('StatefulWidget与基础组件', 'full'),
-          _item('Flutter布局', 'layout'),
-          _item('如何检测用户手势以及处理点击事件', 'gesture'),
-          _item('Flutter如何使用资源文件', 'res'),
-          _item('Flutter如何打开第三方应用', 'launch'),
-          _item('拍照App', 'photo'),
-        ]));
+            _item('Stateless与基础控件', 'less'),
+            _item('StatefulWidget与基础组件', 'full'),
+            _item('Flutter布局', 'layout'),
+            _item('如何检测用户手势以及处理点击事件', 'gesture'),
+            _item('Flutter如何使用资源文件', 'res'),
+            _item('Flutter如何打开第三方应用', 'launch'),
+            _item('拍照App', 'photo'),
+            _item('如何使用图片', 'image'),
+            _item('如何使用动画', 'anim'),
+            _item('如何使用AnimationWidget', 'anim2'),
+            _item('如何使用AnimationBuilder', 'anim3'),
+            _item('如何使用hero动画1', 'anim_hero1'),
+            _item('如何使用hero动画2', 'anim_hero2'),
+          ]),
+        ));
   }
 
   Widget _item(String title, String routeName) {
