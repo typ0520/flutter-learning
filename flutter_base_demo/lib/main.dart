@@ -8,10 +8,13 @@ import 'package:flutter_base_demo/flutter_layout_page.dart';
 import 'package:flutter_base_demo/gesture_group.dart';
 import 'package:flutter_base_demo/image_page.dart';
 import 'package:flutter_base_demo/less_group_page.dart';
+import 'package:flutter_base_demo/loadmore_listview.dart';
 import 'package:flutter_base_demo/photo_app.dart';
 import 'package:flutter_base_demo/res_page.dart';
 import 'package:flutter_base_demo/stateful_group_page.dart';
 import 'package:flutter_base_demo/launch_page.dart';
+
+import 'gridview.dart';
 
 void main() => runApp(MyApp());
 
@@ -49,6 +52,8 @@ class MyApp extends StatelessWidget {
           'anim_hero1': (BuildContext context) => AnimHero1Page(),
           'anim_hero2': (BuildContext context) => AnimPage3(),
           'ExpansionListViewPage': (BuildContext context) => ExpansionListViewPage(),
+          'gridview': (BuildContext context) => GridViewPage(),
+          'loadmore': (BuildContext context) => LoadMorePage(),
         });
   }
 }
@@ -117,6 +122,8 @@ class _RouteNavigatorState extends State<RouteNavigator> {
             _item('如何使用hero动画1', 'anim_hero1'),
             _item('如何使用hero动画2', 'anim_hero2'),
             _item('列表的展开和收起', 'ExpansionListViewPage'),
+            _item('网络布局(GridView)', 'gridview'),
+            _item('列表下拉刷新上拉加载更多', 'loadmore'),
           ]),
         ));
   }
