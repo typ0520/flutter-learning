@@ -37,7 +37,7 @@ class _SearchPageState extends State<SearchPage> {
   Future<CommonModel> fetchPost() async {
     final response = await post(
         'http://www.devio.org/io/flutter_app/json/test_common_model.json');
-    final result = json.decode(response.body);
+    final result = json.decode(Utf8Decoder().convert(response.bodyBytes));
     return CommonModel.fromJSON(result);
   }
 }
@@ -52,3 +52,4 @@ class CommonModel {
     return CommonModel(icon: json['icon'], hideAppBar: json['hideAppBar']);
   }
 }
+

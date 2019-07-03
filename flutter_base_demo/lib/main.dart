@@ -3,6 +3,7 @@ import 'package:flutter_base_demo/anim_hero1.dart';
 import 'package:flutter_base_demo/anim_page.dart';
 import 'package:flutter_base_demo/anim_page2.dart';
 import 'package:flutter_base_demo/anim_page3.dart';
+import 'package:flutter_base_demo/expansion_listview.dart';
 import 'package:flutter_base_demo/flutter_layout_page.dart';
 import 'package:flutter_base_demo/gesture_group.dart';
 import 'package:flutter_base_demo/image_page.dart';
@@ -47,6 +48,7 @@ class MyApp extends StatelessWidget {
           'anim3': (BuildContext context) => AnimPage3(),
           'anim_hero1': (BuildContext context) => AnimHero1Page(),
           'anim_hero2': (BuildContext context) => AnimPage3(),
+          'ExpansionListViewPage': (BuildContext context) => ExpansionListViewPage(),
         });
   }
 }
@@ -114,6 +116,7 @@ class _RouteNavigatorState extends State<RouteNavigator> {
             _item('如何使用AnimationBuilder', 'anim3'),
             _item('如何使用hero动画1', 'anim_hero1'),
             _item('如何使用hero动画2', 'anim_hero2'),
+            _item('列表的展开和收起', 'ExpansionListViewPage'),
           ]),
         ));
   }
