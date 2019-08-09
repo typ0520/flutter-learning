@@ -1,8 +1,8 @@
 package com.example.flutterhybridandroid
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import io.flutter.facade.Flutter
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -12,7 +12,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         btn.setOnClickListener {
-            supportFragmentManager.beginTransaction().replace(R.id.fl, Flutter.createFragment("{name: 'devio'}")).commit()
+            val intent = Intent(this, FlutterAppActivity::class.java)
+            intent.putExtra(FlutterAppActivity.EXTRA_INIT_PARAMS, et.text.toString())
+            startActivity(intent)
         }
     }
 }
