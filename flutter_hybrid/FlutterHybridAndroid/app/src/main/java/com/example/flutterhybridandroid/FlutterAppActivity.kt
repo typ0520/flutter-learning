@@ -16,19 +16,20 @@ class FlutterAppActivity : FragmentActivity() {
 
     lateinit var basicMessageChannelPlugin: BasicMessageChannelPlugin
 
+    lateinit var methodChannelPlugin: MethodChannelPlugin
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_flutter_app)
 
         val initParams = intent.getStringExtra(EXTRA_INIT_PARAMS)
 
-        //val fragment = Flutter.createFragment(initParams)
-
         val flutterView = Flutter.createView(this, lifecycle, initParams)
         fl.addView(flutterView, FrameLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT))
 
         eventChannelPlugin = EventChannelPlugin.registerWith(flutterView)
         basicMessageChannelPlugin = BasicMessageChannelPlugin.registerWith(flutterView)
+        methodChannelPlugin = MethodChannelPlugin.registerWith(flutterView)
 
         btn_send.setOnClickListener {
             if (rg.checkedRadioButtonId == R.id.rb_event_channel) {

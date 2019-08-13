@@ -94,8 +94,16 @@ class _MyHomePageState extends State<MyHomePage> {
     try {
       if (_isMethodChannelPlugin) {
         response = await _methodChannelPlugin.invokeMethod('send', value);
+
+        setState(() {
+          _showMessage = "MethodChannel: " + response;
+        });
       } else {
         response = await _basicMessageChannelPlugin.send(value);
+
+        setState(() {
+          _showMessage = "BasicMessageChannel: " + response;
+        });
       }
     } on PlatformException catch (e) {
       print(e);
